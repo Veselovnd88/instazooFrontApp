@@ -2,17 +2,17 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html'
+  selector: 'app-register',
+  templateUrl: './register.component.html'
 })
-export class AuthComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
-  public authForm: FormGroup;
+  public regForm: FormGroup;
 
-  public authTitle = "Welcome to InstaZoo, please, register and join us";
+  public regTitle = "Welcome to InstaZoo, please, register and join us";
 
   ngOnInit(): void {
-    this.authForm = this.createFormAuth();
+    this.regForm = this.createFormAuth();
   }
 
   createFormAuth(): FormGroup {

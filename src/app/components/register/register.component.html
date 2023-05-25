@@ -1,0 +1,22 @@
+<form [formGroup]="regForm" (ngSubmit)="submit()"
+      class="flex flex-col justify-center items-center">
+  <p class="text-2xl text-center">{{regTitle}}</p>
+  <label class="text-2xl pt-2">Enter username</label>
+  <input class="border-4 border-emerald-600 rounded-s px-10"
+         type="text"
+  >
+  <label class="text-2xl pt-2">Enter password</label>
+  <input class="border-4 border-emerald-600 rounded-s px-10"
+         type="text"
+  >
+  <label class="text-2xl pt-2">Repeat password</label>
+  <input class="border-4 border-emerald-600 rounded-s px-10 mb-5"
+         type="text"
+         placeholder="Confirm password"
+         formControlName="confirmPassword"
+  >
+  <button class="bg-blue-800 hover:bg-blue-700 text-white font-bold rounded-2xl px-10 py-5"
+  >Submit
+  </button>
+
+</form>
