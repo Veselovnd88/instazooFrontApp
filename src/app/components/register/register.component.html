@@ -1,22 +1,112 @@
-<form [formGroup]="regForm" (ngSubmit)="submit()"
-      class="flex flex-col justify-center items-center">
-  <p class="text-2xl text-center">{{regTitle}}</p>
-  <label class="text-2xl pt-2">Enter username</label>
-  <input class="border-4 border-emerald-600 rounded-s px-10"
-         type="text"
-  >
-  <label class="text-2xl pt-2">Enter password</label>
-  <input class="border-4 border-emerald-600 rounded-s px-10"
-         type="text"
-  >
-  <label class="text-2xl pt-2">Repeat password</label>
-  <input class="border-4 border-emerald-600 rounded-s px-10 mb-5"
-         type="text"
-         placeholder="Confirm password"
-         formControlName="confirmPassword"
-  >
-  <button class="bg-blue-800 hover:bg-blue-900 text-white font-bold rounded-2xl px-10 py-5"
-  >Submit
-  </button>
+<div class="container h-full px-6 py-24">
+  <div
+    class="flex h-full flex-wrap items-center justify-center lg:justify-between">
+    <div
+      class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+      <img
+        src="assets/login-page-img.jpg"
+        class="w-full"
+        alt="Dog image"/>
+    </div>
 
-</form>
+    <div class="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+      <form [formGroup]="registerForm">
+        <p class="text-3xl text-red-950 bg-center">Registration</p>
+        <div class="relative mb-6" data-te-input-wrapper-init>
+          <input
+            type="text"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary  [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            id="usernameInput"
+            placeholder="your username"
+            formControlName="username"/>
+          <label
+            for="usernameInput"
+            class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-2 text-neutral-900 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
+          >username</label
+          >
+        </div>
+        <!--email-->
+        <div class="relative mb-6" data-te-input-wrapper-init>
+          <input
+            type="email"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary  [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            id="emailInput"
+            placeholder="your email"
+            formControlName="email"/>
+          <label
+            for="emailInput"
+            class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-2 text-neutral-900 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
+          >email</label
+          >
+        </div>
+        <!--firstname-->
+        <div class="relative mb-6" data-te-input-wrapper-init>
+          <input
+            type="text"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary  [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            id="firstNameInput"
+            placeholder="your firstname"
+            formControlName="firstname"/>
+          <label
+            for="firstNameInput"
+            class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-2 text-neutral-900 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
+          >firstname</label
+          >
+        </div>
+        <!--lastname-->
+        <div class="relative mb-6" data-te-input-wrapper-init>
+          <input
+            type="text"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary  [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            id="lastnameInput"
+            placeholder="your lastname"
+            formControlName="lastname"/>
+          <label
+            for="lastnameInput"
+            class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-2 text-neutral-900 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
+          >lastname</label
+          >
+        </div>
+        <div class="relative mb-6" data-te-input-wrapper-init>
+          <input
+            type="password"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            id="passwordInput"
+            placeholder="your password"
+            formControlName="password"
+          />
+          <label
+            for="passwordInput"
+            class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-2 text-neutral-500 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
+          >password</label
+          >
+        </div>
+        <div class="relative mb-6" data-te-input-wrapper-init>
+          <input
+            type="password"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            id="confirmPassword"
+            placeholder="confirm password"
+            formControlName="confirmPassword"
+          />
+          <label
+            for="confirmPassword"
+            class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-2 text-neutral-500 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
+          >confirm password</label
+          >
+        </div>
+        <div class="text-center lg:text-left">
+          <button
+            class="inline-block rounded bg-emerald-800 px-7 pb-2.5 pt-3 text-xl font-medium"
+            mat-flat-button
+            color="primary"
+            [disabled]="registerForm.invalid" (click)="submit()">
+            Register
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

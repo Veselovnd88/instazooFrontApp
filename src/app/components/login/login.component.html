@@ -15,7 +15,7 @@
         <div class="relative mb-6" data-te-input-wrapper-init>
           <input
             type="text"
-            class="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-600 dark:text-neutral-200 dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary  [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
             id="usernameInput"
             placeholder="your username"
             formControlName="username"/>
@@ -28,7 +28,7 @@
         <div class="relative mb-6" data-te-input-wrapper-init>
           <input
             type="password"
-            class="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-950 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+            class="peer m-0 block h-[58px] w-full rounded border-2 border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-950 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
             id="passwordInput"
             placeholder="your password"
             formControlName="password"
@@ -41,13 +41,16 @@
         </div>
         <div class="text-center lg:text-left">
           <button
-            class="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase"
-            [disabled]="loginForm.invalid" (click)="submit()" mat-flat-button
-            color="primary">
+            class="inline-block rounded bg-emerald-800 px-7 pb-2.5 pt-3 text-xl font-medium"
+            mat-flat-button
+            color="primary"
+            [disabled]="loginForm.invalid" (click)="submit()">
             Login
           </button>
+          <a class="text-2xl  text-purple-900 px-10 py-5
+          text-decoration-line: underline" routerLink="/register">Register</a>
         </div>
-        <a class="text-2xl text-black " routerLink="/register"> Register</a>
+
       </form>
 
     </div>
