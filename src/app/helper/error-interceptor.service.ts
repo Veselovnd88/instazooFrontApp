@@ -3,7 +3,6 @@ import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {catchError, Observable, throwError} from "rxjs";
 import {TokenStorageService} from "../service/token-storage.service";
 import {NotificationService} from "../service/notification.service";
-import {AuthInterceptorService} from "./auth-interceptor.service";
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +29,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
 }
 
 //TODO how it works
-export const authErrorInterceptorProvider = [
-  {provide: HTTP_INTERCEPTORS, userClass: ErrorInterceptorService, multi: true}
+export const authErrorInterceptorProviders = [
+  {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true}
 ];
 

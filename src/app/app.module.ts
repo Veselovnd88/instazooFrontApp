@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material-module";
 import {HttpClientModule} from "@angular/common/http";
 import {authInterceptorProviders} from "./helper/auth-interceptor.service";
-import {authErrorInterceptorProvider} from "./helper/error-interceptor.service";
+import {authErrorInterceptorProviders} from "./helper/error-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import {authErrorInterceptorProvider} from "./helper/error-interceptor.service";
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [authInterceptorProviders, authErrorInterceptorProvider],
+  providers: [authInterceptorProviders, authErrorInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
