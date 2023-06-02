@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public submit(): void {
+    console.log(this.registerForm.value);
     this.authService.register({
       username: this.registerForm.value.username,
       email: this.registerForm.value.email,
@@ -49,16 +50,13 @@ export class RegisterComponent implements OnInit {
     }).subscribe({
       next: (data) => {
         console.log(data);
-        this.tokenService.saveToken(data.token);
-        this.tokenService.saveUser(data);
-        this.notificationService.showSnackBar("Successfully registered in");
+        this.notificationService.showSnackBar("Successfully registered");
         this.router.navigate(['/']);
         window.location.reload();
       },
       error: (error) => {
         console.log(error);
         this.notificationService.showSnackBar(error.message());
-
       }
     });
   }
