@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User} from "../models/User";
 import {Observable} from "rxjs";
 
 const AUTH_API = "http://localhost:6060/api/v1/auth";
@@ -28,6 +27,7 @@ export class AuthService {
       username: user.username,
       firstname: user.firstname,
       lastname: user.lastname,
+      password: user.password,
       confirmPassword: user.confirmPassword
     })
   }

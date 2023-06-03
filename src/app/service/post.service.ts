@@ -30,7 +30,7 @@ export class PostService {
   }
 
   //TODO change to get, because not transfer body, and also change backend
-  public likePost(id: number, username: string): Observable<any> {
+  public likePost(id: any, username: string): Observable<any> {
     return this.http.post(POST_API + "/" + id + "/" + username + "/like", null);
   }
 

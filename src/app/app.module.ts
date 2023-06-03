@@ -11,12 +11,18 @@ import {MaterialModule} from "./material-module";
 import {HttpClientModule} from "@angular/common/http";
 import {authInterceptorProviders} from "./helper/auth-interceptor.service";
 import {authErrorInterceptorProviders} from "./helper/error-interceptor.service";
+import { NavigationComponent } from './layout/navigation/navigation.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { IndexComponent } from './layout/index/index.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavigationComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +32,8 @@ import {authErrorInterceptorProviders} from "./helper/error-interceptor.service"
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    MatTooltipModule,
+    NgOptimizedImage,
   ],
   providers: [authInterceptorProviders, authErrorInterceptorProviders],
   bootstrap: [AppComponent]
