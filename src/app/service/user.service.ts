@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
-const USER_API = 'http://localhost:6667/api/v1/user';
+const USER_API = 'http://localhost:6060/api/v1/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,7 @@ export class UserService {
   }
 
   public getCurrentUser(): Observable<any> {
+    console.log(this.http);
     return this.http.get(USER_API);
   }
 

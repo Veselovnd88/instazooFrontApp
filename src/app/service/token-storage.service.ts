@@ -15,11 +15,14 @@ export class TokenStorageService {
   }
 
   public saveToken(token: string): void {
+    console.log("save token")
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
   public getToken(): string {
+    let item = window.sessionStorage.getItem(TOKEN_KEY);
+    console.log("get token :"+ item)
     // @ts-ignore
     return window.sessionStorage.getItem(TOKEN_KEY);
   }

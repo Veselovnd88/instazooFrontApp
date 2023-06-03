@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
               private router: Router,
               private formBuilder: FormBuilder) {
     if (tokenService.getUser()) {
+      console.log("user logged in")
       this.router.navigate(['main'])
     }
   }
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   createLoginForm(): FormGroup {
+    console.log("I create login form")
     return this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required])]
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   public submit(): void {
+    console.log("login")
     this.authService.login({
       username: this.loginForm.value.username,
       password: this.loginForm.value.password
@@ -47,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.saveUser(data);
         this.notificationService.showSnackBar("Succesfully logged in");
         this.router.navigate(['/']);
-        window.location.reload();
+       // window.location.reload();
       },
       error: (error) => {
         console.log(error);

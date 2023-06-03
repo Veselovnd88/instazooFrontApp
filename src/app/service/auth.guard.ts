@@ -11,7 +11,7 @@ export const authGuard = () => {
   if (currentUser) {
     return true;
   }
-  router.parseUrl('/login');
+  router.navigate(['/login']);
   return false;
 }
 
