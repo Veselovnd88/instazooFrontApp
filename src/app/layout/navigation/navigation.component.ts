@@ -23,9 +23,8 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenService.getToken();
-
     if (this.isLoggedIn) {
-      console.log("User logged in, getting user info");
+      console.log("Nav bar: User logged in, getting user info");
       this.userService.getCurrentUser()
         .subscribe({
             next: (data) => {

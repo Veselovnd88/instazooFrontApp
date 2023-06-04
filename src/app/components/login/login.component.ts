@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../service/auth.service";
 import {TokenStorageService} from "../../service/token-storage.service";
 import {NotificationService} from "../../service/notification.service";
@@ -14,8 +14,6 @@ import {PostService} from "../../service/post.service";
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
-
-  public authTitle = "Welcome to InstaZoo, please, register and join us";
 
   constructor(private authService: AuthService,
               private tokenService: TokenStorageService,
@@ -54,7 +52,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.saveUser(data);
         this.notificationService.showSnackBar("Succesfully logged in");
         this.router.navigate(['/']);
-        // window.location.reload();
+        window.location.reload();
       },
       error: (error) => {
         console.log(error);
@@ -62,16 +60,6 @@ export class LoginComponent implements OnInit {
 
       }
     });
-  }
-
-  testButton() {
-    this.userService.getCurrentUser()
-      .subscribe({
-        next: (data) => {
-          console.log(data);
-          console.log(data.username);
-        }
-      })
   }
 
 }
