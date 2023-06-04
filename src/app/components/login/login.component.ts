@@ -4,6 +4,8 @@ import {AuthService} from "../../service/auth.service";
 import {TokenStorageService} from "../../service/token-storage.service";
 import {NotificationService} from "../../service/notification.service";
 import {Router} from "@angular/router";
+import {UserService} from "../../service/user.service";
+import {PostService} from "../../service/post.service";
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private tokenService: TokenStorageService,
+              private userService: UserService,
+              private postService: PostService,
               private notificationService: NotificationService,
               private router: Router,
               private formBuilder: FormBuilder) {
@@ -50,7 +54,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.saveUser(data);
         this.notificationService.showSnackBar("Succesfully logged in");
         this.router.navigate(['/']);
-       // window.location.reload();
+        // window.location.reload();
       },
       error: (error) => {
         console.log(error);
@@ -58,6 +62,16 @@ export class LoginComponent implements OnInit {
 
       }
     });
+  }
+
+  testButton() {
+    this.userService.getCurrentUser()
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+          console.log(data.username);
+        }
+      })
   }
 
 }

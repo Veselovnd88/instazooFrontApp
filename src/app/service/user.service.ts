@@ -18,7 +18,7 @@ export class UserService {
   }
 
   public getCurrentUser(): Observable<any> {
-    console.log(this.http);
+    console.log("Getting current User" + this.http);
     return this.http.get(USER_API);
   }
 
