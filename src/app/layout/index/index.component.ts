@@ -31,7 +31,7 @@ export class IndexComponent implements OnInit {
     this.postService.getAllPosts()
       .subscribe({
           next: (data) => {
-            console.log(data);
+            console.log("All posts are there: " + data);
             this.posts = data;
             this.isPostsLoaded = true;
             this.getImagesToPosts(this.posts);
@@ -64,8 +64,8 @@ export class IndexComponent implements OnInit {
 
   getCommentsToPosts(posts: Post[]): void {
     posts.forEach(p => {
-      if (p.userLiked == null) {
-        p.userLiked = [];//if array with liked users empty this field is undefined
+      if (p.likedUsers == null) {
+        p.likedUsers = [];//if array with liked users empty this field is undefined
       }
       if (p.id != null) {
         this.commentService.getCommentsToPost(p.id).subscribe({
@@ -79,29 +79,28 @@ export class IndexComponent implements OnInit {
 
   likePost(postId: number | undefined, postIndex: number): void {
     const post = this.posts[postIndex];
-    if (post.userLiked === null) {
-      console.log("Userliked array")
-    }
-    console.log("This is post info " + post.userLiked);
+    console.log(post);
     // @ts-ignore
-    if (!post.userLiked.includes(this.user.username)) {
+    if (!post.likedUsers.includes(this.user.username)) {
       this.postService.likePost(postId, this.user.username)
         .subscribe({
           next: () => {
             // @ts-ignore
-            post.userLiked.push(this.user.username);
-            this.notificationService.showSnackBar("Liked!")
+            post.likedUsers.push(this.user.username);
+            console.log("Post liked by " + post.likedUsers);
+            this.notificationService.showSnackBar(this.user.username + " liked post");
           }
         });
     } else {
       this.postService.likePost(postId, this.user.username)
         .subscribe({
           next: () => {
-            const index = post.userLiked.indexOf(this.user.username, 0);
+            const index = post.likedUsers.indexOf(this.user.username, 0);
             // @ts-ignore
             if (index > -1) {
               // @ts-ignore
-              post.userLiked.splice(index, 1);
+              post.likedUsers.splice(index, 1);
+              this.notificationService.showSnackBar(this.user.username + " disliked post");
             }
           }
         });
