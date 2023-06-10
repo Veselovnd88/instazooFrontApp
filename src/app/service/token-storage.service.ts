@@ -22,7 +22,7 @@ export class TokenStorageService {
 
   public getToken(): string {
     let item = window.sessionStorage.getItem(TOKEN_KEY);
-    console.log("get token :"+ item)
+    console.log("get token :" + item)
     // @ts-ignore
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
@@ -34,7 +34,8 @@ export class TokenStorageService {
 
   public getUser(): any {
     // @ts-ignore
-    JSON.parse(sessionStorage.getItem(USER_KEY));
+    return JSON.parse(sessionStorage.getItem(USER_KEY));
+
   }
 
   public logout(): void {
