@@ -64,6 +64,9 @@ export class IndexComponent implements OnInit {
 
   getCommentsToPosts(posts: Post[]): void {
     posts.forEach(p => {
+      if (p.userLiked == null) {
+        p.userLiked = [];//if array with liked users empty this field is undefined
+      }
       if (p.id != null) {
         this.commentService.getCommentsToPost(p.id).subscribe({
           next: (data) => {
@@ -76,7 +79,10 @@ export class IndexComponent implements OnInit {
 
   likePost(postId: number | undefined, postIndex: number): void {
     const post = this.posts[postIndex];
-    console.log(post);
+    if (post.userLiked === null) {
+      console.log("Userliked array")
+    }
+    console.log("This is post info " + post.userLiked);
     // @ts-ignore
     if (!post.userLiked.includes(this.user.username)) {
       this.postService.likePost(postId, this.user.username)
@@ -91,20 +97,23 @@ export class IndexComponent implements OnInit {
       this.postService.likePost(postId, this.user.username)
         .subscribe({
           next: () => {
-            const index = post.userLiked?.indexOf(this.user.username, 0);
+            const index = post.userLiked.indexOf(this.user.username, 0);
             // @ts-ignore
             if (index > -1) {
               // @ts-ignore
-              post.userLiked?.splice(index, 1);
+              post.userLiked.splice(index, 1);
             }
           }
         });
     }
   }
 
-  postComment(message: string, postId: number | undefined, postIndex: number): void {
+  postComment(event: any, postId: number | undefined, postIndex: number): void {
     const post = this.posts[postIndex];
-    console.log(post);
+
+    let message = (event.target as HTMLInputElement).value;
+    // @ts-ignore
+    console.log(message)
     this.commentService.addCommentToPost(postId, message)
       .subscribe({
         next: (data) => {
