@@ -33,9 +33,9 @@ export class IndexComponent implements OnInit {
           next: (data) => {
             console.log("All posts are there: " + data);
             this.posts = data;
-            this.isPostsLoaded = true;
             this.getImagesToPosts(this.posts);
             this.getCommentsToPosts(this.posts);
+            this.isPostsLoaded = true;
           }
         }
       );
@@ -129,4 +129,5 @@ export class IndexComponent implements OnInit {
     return 'data:image/jpeg; base64,' + img;
   }
 
+  protected readonly JSON = JSON;
 }

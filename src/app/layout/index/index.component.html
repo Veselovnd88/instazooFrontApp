@@ -13,18 +13,21 @@
 
     <mat-card-actions align="start">
       <button *ngIf="isUserDataLoaded" mat-button (click)="likePost(post.id, i)"
-              >
-        <mat-icon [ngClass]="post.likedUsers.indexOf(user.username) !==-1 ? 'is-liked' : 'not-liked'">favorite</mat-icon>
+      >
+        <mat-icon [ngClass]="post.likedUsers.indexOf(user.username) !==-1 ? 'is-liked' : 'not-liked'">favorite
+        </mat-icon>
         Like
       </button>
     </mat-card-actions>
 
     <div style="text-align: left">
       <p *ngFor="let comment of post.comments">
-        <span style="font-weight: 500"> {{comment.data}}</span>
-        : {{comment.data}}
-      </p>
+
+        <span style="font-weight: 500">{{JSON.parse(JSON.stringify(comment)).username}}</span>:
+        {{JSON.parse(JSON.stringify(comment)).message}}</p>
     </div>
+
+
     <mat-form-field class="w-100">
       <mat-label>Leave a comment...</mat-label>
       <input (keyup.enter)="postComment($event, post.id, i)" matInput #message maxlength="128">

@@ -19,6 +19,7 @@ export class CommentService {
   }
 
   public getCommentsToPost(postId: number): Observable<any> {
+    // @ts-ignore
     return this.http.get(COMMENT_API + '/' + postId);
   }
 
