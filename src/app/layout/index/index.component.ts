@@ -18,7 +18,6 @@ export class IndexComponent implements OnInit {
   posts: Post[];
   user: User;
 
-
   constructor(private postService: PostService,
               private userService: UserService,
               private commentService: CommentService,
@@ -129,5 +128,4 @@ export class IndexComponent implements OnInit {
     return 'data:image/jpeg; base64,' + img;
   }
 
-  protected readonly JSON = JSON;
 }

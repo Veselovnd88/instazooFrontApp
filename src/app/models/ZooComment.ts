@@ -1,4 +1,4 @@
-export interface Comment {
+export interface ZooComment {
   id?: number;
   username: string;
   message: string;

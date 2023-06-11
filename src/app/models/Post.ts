@@ -1,4 +1,6 @@
-export {Comment} from './Comment'
+import {ZooComment} from "./ZooComment";
+
+export {ZooComment} from './ZooComment'
 
 export interface Post {
   id?: number;//? sign means that it is Optional
@@ -8,6 +10,6 @@ export interface Post {
   image?: File;
   likes?: number;
   likedUsers: string[];
-  comments: Comment[];
+  comments: ZooComment[];
   username?: string;
 }

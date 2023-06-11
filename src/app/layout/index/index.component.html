@@ -22,9 +22,7 @@
 
     <div style="text-align: left">
       <p *ngFor="let comment of post.comments">
-
-        <span style="font-weight: 500">{{JSON.parse(JSON.stringify(comment)).username}}</span>:
-        {{JSON.parse(JSON.stringify(comment)).message}}</p>
+        <span style="font-weight: 500">{{comment.username}}</span>: {{comment.message}}</p>
     </div>
 
 
