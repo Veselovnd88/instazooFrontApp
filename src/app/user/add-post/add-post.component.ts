@@ -52,14 +52,15 @@ export class AddPostComponent implements OnInit {
         this.createdPost = data;
         console.log("post created");
         console.log(data);
-
         if (this.createdPost != null) {
-          console.log("image uploaded for the post " + this.createdPost.id);
-          this.imageService.uploadImageToPost(this.selectedFile, this.createdPost.id);
-          this.imageService.uploadImageToUser(this.selectedFile);
-          console.log(this.selectedFile);
-          this.isPostCreated = true;
-          this.notificationService.showSnackBar("Post created");
+          this.imageService.uploadImageToPost(this.selectedFile, this.createdPost.id)
+            .subscribe({
+              next: () => {
+                this.isPostCreated = true;
+                this.notificationService.showSnackBar("Post created");
+                this.router.navigate(['/profile'])
+              }
+            })
         }
       }
     });
@@ -75,6 +76,5 @@ export class AddPostComponent implements OnInit {
       this.previewImageUrl = reader.result;
     }
   }
-
 
 }
