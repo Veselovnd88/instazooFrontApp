@@ -8,7 +8,7 @@ export interface Post {
   caption: string;
   location: string;
   image?: File;
-  likes?: number;
+  likes: number;
   likedUsers: string[];
   comments: ZooComment[];
   username?: string;

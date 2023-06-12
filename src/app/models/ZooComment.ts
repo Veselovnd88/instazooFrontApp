@@ -1,5 +1,5 @@
 export interface ZooComment {
-  id?: number;
+  id: number;
   username: string;
   message: string;
   userid: number;

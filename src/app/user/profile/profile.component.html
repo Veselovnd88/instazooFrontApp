@@ -4,13 +4,13 @@
     <button mat-flat-button color="primary" (click)="openEditDialog()">Edit Info</button>
   </div>
 
-  <div style="" class="row">
+  <div style="padding-top: 2rem" class="row">
     <div class="col">
       <img class="profile-image"
            [src]="previewImageUrl || formatImage(userProfileImage) || 'https://www.missingdogsuk.co.uk/wp-content/plugins/wp-job-manager-resumes/assets/images/candidate.png'"
            alt="user image">
       <input type="file"
-             style=""
+             style="display: none"
              #fileInput (change)="onFileSelected($event)">
 
       <button mat-button (click)="fileInput.click()">Pick File</button>
